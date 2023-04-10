@@ -1,0 +1,12 @@
+<h1>Caculator</h1>
+<label>Số thứ nhất :</label>
+<input type="number" [(ngModel)]="num1" ><br><br>
+<label>Số thứ hai :</label>
+<input type="number" [(ngModel)]="num2" ><br><br>
+
+<input type="button" value="Cộng" (click)="tinh('+')">
+<input type="button" value="Trừ" (click)="tinh('-')">
+<input type="button" value="Nhân" (click)="tinh('*')">
+<input type="button" value="Chia" (click)="tinh('/')">
+<h4>Kết quả : {{sum}}</h4>
+<h4 style="color: red">{{error}}</h4>
