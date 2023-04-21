@@ -1,1 +1,53 @@
 <h2>List student</h2>
+<hr>
+<table class="table table-striped">
+  <thead class="table-dark">
+  <tr>
+    <td>Name</td>
+    <td>Scope</td>
+    <td>Url</td>
+    <td>Like</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let student of students">
+    <td>{{student.name}}</td>
+    <td>{{student.scope}}</td>
+    <td>
+      <a href="{{student.url}}" target="_blank">hình ảnh</a>
+    </td>
+    <td>
+      <app-like></app-like>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<div>
+  <h2>Article Information</h2>
+  <table>
+    <tr>
+      <td>Name:</td>
+      <td><textarea [(ngModel)]="student.name" cols="70"></textarea></td>
+    </tr>
+    <tr>
+      <td>Scope:</td>
+      <td>
+        <textarea [(ngModel)]="student.scope" cols="70"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td>Url:</td>
+      <td>
+        <textarea [(ngModel)]="student.url" cols="70"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td><button style="float: right" (click)="addNewArticle()">Add</button></td>
+    </tr>
+  </table>
+</div>
+<div>
+  <app-footer></app-footer>
+</div>

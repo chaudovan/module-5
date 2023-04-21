@@ -1,0 +1,39 @@
+
+<h2>Form đăng ký</h2>
+<form novalidate [formGroup]="rfLogin">
+<!--  &lt;!&ndash; Email input &ndash;&gt;-->
+<!--  <div class="form-outline mb-4">-->
+<!--    <input type="email" id="form3Example3" class="form-control form-control-lg"-->
+<!--           placeholder="Enter a valid email address" />-->
+<!--    <label class="form-label" for="form3Example3">Email address</label>-->
+<!--  </div>-->
+
+<!--  &lt;!&ndash; Password input &ndash;&gt;-->
+<!--  <div class="form-outline mb-3">-->
+<!--    <input type="password" id="form3Example4" class="form-control form-control-lg"-->
+<!--           placeholder="Enter password" />-->
+<!--    <label class="form-label" for="form3Example4">Password</label>-->
+<!--  </div>-->
+  <div class="form-outline mb-4">
+    <input
+      type="email"
+      class="form-control" formControlName="email" id="form3Example1" />
+    <label class="form-label" for="form3Example1">Email address</label>
+  </div>
+  <p class="text-danger" *ngIf="rfLogin.controls.email?.touched && rfLogin.controls.email?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfLogin.controls.email?.touched && rfLogin.controls.email?.errors?.email">email phải
+    đúng định dang abc@gmail.com</p>
+
+  <div class="form-outline mb-4">
+    <input
+      type="password"
+      class="form-control" formControlName="password" id="form2Example2">
+    <label class="form-label" for="form2Example2">Password</label>
+  </div>
+  <p class="text-danger" *ngIf="rfLogin.controls.password?.touched && rfLogin.controls.password?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfLogin.controls.password?.touched && rfLogin.controls.password?.errors?.minlength">mật khẩu tối thiếu 6 ký tự</p>
+
+  <button type="submit" class="btn btn-primary" [disabled]="rfLogin.invalid">Login</button>
+</form>

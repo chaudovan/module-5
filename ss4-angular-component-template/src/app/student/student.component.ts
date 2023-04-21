@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Student} from '../student';
 
 @Component({
@@ -7,14 +7,33 @@ import {Student} from '../student';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
-  student: Student = {
-    url : 'https://medium.freecodecamp.org/the-evolution-of-async-javascript-from-callbacks-to-promises-to-async-await-e73b047f2f40',
-    name : 'Đỗ Văn Châu',
-    scope : 8
- };
-  constructor() { }
+  student: Student = {};
+  students: Student[] = [
+    {
+    url: 'https://thefullsnack.com/posts/game-of-life.html',
+    name: 'Đỗ Văn Châu',
+    scope: 8
+    },
+    {
+      url: 'https://thefullsnack.com/posts/game-of-life.html',
+      name: 'Đỗ Văn Châu 1',
+      scope: 1
+    },
+    {
+      url: 'https://thefullsnack.com/posts/game-of-life.html',
+      name: 'Đỗ Văn Châu 2',
+      scope: 2
+    }
+  ];
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
+  addNewArticle() {
+    this.students.push(this.student);
+    this.student = {};
+  }
 }

@@ -1,0 +1,74 @@
+<form novalidate [formGroup]="rfDangky">
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      class="form-control" id="email" formControlName="email">
+  </div>
+  <p class="text-danger" *ngIf="rfDangky.controls.email.touched && rfDangky.controls.email?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfDangky.controls.email.touched && rfDangky.controls.email?.errors?.email">phải đúng
+    định dạng abc@...</p>
+
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="text"
+      class="form-control" id="password" formControlName="password">
+  </div>
+  <p class="text-danger" *ngIf="rfDangky.controls.password?.touched && rfDangky.controls.password?.errors?.required">
+    Không được để trống</p>
+  <p class="text-danger" *ngIf="rfDangky.controls.password?.touched && rfDangky.controls.password?.errors?.minlength">
+    mật khẩu phải lớn hơn 5 kí tự</p>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password</label>
+    <input
+      type="text"
+      class="form-control" id="confirmPassword" formControlName="confirmPassword">
+  </div>
+  <p class="text-danger"
+     *ngIf="rfDangky.controls.confirmPassword?.errors?.required && rfDangky.controls.confirmPassword?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfDangky.hasError('pass') && rfDangky.controls.confirmPassword?.touched">không trùng
+    khớp MK</p>
+  <div class="form-group">
+    <label>Country</label>
+    <select class="form-control" formControlName="country">>
+      <option value="">---Chọn country---</option>
+      <option value="1">---Đà Nẵng---</option>
+      <option value="2">---Hà Nội---</option>
+      <option value="3">---Hồ Chí Minh---</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfDangky.controls.country?.errors?.required && rfDangky.controls.country?.touched">không
+    được để trống</p>
+
+  <div class="form-group">
+    <label for="age">Age</label>
+    <input
+      type="number"
+      class="form-control" id="age" formControlName="age">
+  </div>
+  <p class="text-danger" *ngIf="rfDangky.controls.age?.errors?.required && rfDangky.controls.age?.touched">không được để
+    trống</p>
+  <p class="text-danger" *ngIf="rfDangky.controls.age?.errors?.min && rfDangky.controls.age?.touched">Tuổi phải lớn hơn
+    18</p>
+
+  <label>Gender: </label>
+  <label>Male</label>
+  <input type="radio" formControlName="gender" value="1">
+  <label>Female</label>
+  <input type="radio" formControlName="gender" value="0">
+
+  <p class="text-danger" *ngIf="rfDangky.controls.gender?.errors?.required && rfDangky.controls.gender?.untouched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" formControlName="phone">
+  </div>
+  <p class="text-danger" *ngIf="rfDangky.controls.phone?.errors?.required && rfDangky.controls.phone?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfDangky.controls.phone?.hasError('pattern') && rfDangky.controls.phone?.touched">phone phải
+    có định dạng (+84)xxxxx</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfDangky.invalid">Submit</button>
+</form>

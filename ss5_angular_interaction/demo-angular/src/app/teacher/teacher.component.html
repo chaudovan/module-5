@@ -1,0 +1,25 @@
+
+<app-teacher-create (onCreate) = "addNewTeacher($event)"></app-teacher-create>
+<p>{{mess}}</p>
+<table class="table table-primary">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Vote</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let teacher of teacherList,index as i">
+    <td scope="row" (click)="teacherDetail(teacher)">{{i+1}}</td>
+    <td (click)="teacherDetail(teacher)">{{teacher.name}}</td>
+    <td (click)="teacherDetail(teacher)">{{teacher.salary}}</td>
+    <td>
+      <app-like [vote] = "teacher.vote"></app-like>
+    </td>
+  </tr>
+
+  </tbody>
+</table>
+<app-teacher-detail [teacher] = "teacherD"></app-teacher-detail>
