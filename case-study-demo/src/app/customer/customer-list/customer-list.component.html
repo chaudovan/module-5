@@ -1,1 +1,63 @@
-<p>customer-list works!</p>
+<h2>List Cutomer</h2>
+<a name="" class="btn btn-primary" routerLink="/customer/create" role="button">Create New Customer</a>
+<table class="table table-primary" style="text-align: center">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>Gender</th>
+    <th>IdCard</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Cutomer Type</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let customer of customerList,index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{customer.id}}</td>
+    <td>{{customer.cusName}}</td>
+    <td>{{customer.dateOfBirth}}</td>
+    <td *ngIf="customer.gender==1">Nam</td>
+    <td *ngIf="customer.gender==0">Nữ</td>
+    <td>{{customer.idCard}}</td>
+    <td>{{customer.phone}}</td>
+    <td>{{customer.email}}</td>
+    <td>{{customer.address}}</td>
+    <td>{{customer.customerType.name}}</td>
+    <td>
+      <a  class="btn btn-primary" routerLink="/customer/edit/{{customer.id}}"
+          role="button">Edit</a>|
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(customer)" >
+        Delete
+      </button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want delete id: {{deleteId}} with name is {{deleteName}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(deleteId)">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {CustomerService} from '../../service/customer.service';
+import {Customer} from '../../model/customer';
 
 @Component({
   selector: 'app-customer-list',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./customer-list.component.css']
 })
 export class CustomerListComponent implements OnInit {
-
-  constructor() { }
+  customerList: Customer[];
+  deleteId: string;
+  deleteName: string;
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
+    this.customerList = this.customerService.findAll();
   }
 
+  showDelete(customer: Customer) {
+    this.deleteId = customer.id;
+    this.deleteName = customer.cusName;
+  }
+
+  delete(idDelete: any) {
+    this.customerList = this.customerList.filter(customer => {
+      return customer.id !== idDelete;
+    });
+  }
 }

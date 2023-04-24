@@ -1,0 +1,21 @@
+
+<h3>Danh Sách Từ Điển</h3>
+<table class="table table-bordered" style="text-align: center">
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>WORD</th>
+    <th>DETAIL</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let word of iWordList">
+    <td scope="row">{{word.id}}</td>
+    <td>{{word.word}}</td>
+    <td>
+      <a name="" id="" class="btn btn-primary" routerLink="/tudien/{{word.id}}"
+         role="button">Detail</a>
+    </td>
+  </tr>
+  </tbody>
+</table>

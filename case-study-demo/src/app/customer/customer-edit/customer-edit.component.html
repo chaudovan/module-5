@@ -1,0 +1,86 @@
+<form novalidate [formGroup]="rfEdit">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input
+      type="text"
+      class="form-control" id="id" formControlName="id" readonly>
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.id.touched && rfEdit.controls.id?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfEdit.controls.id?.hasError('pattern') && rfEdit.controls.id?.touched">ID phải
+    có định dạng KH-xxxx với x là số</p>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control" id="name" formControlName="cusName">
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.cusName?.touched && rfEdit.controls.cusName?.errors?.required">
+    Không được để trống</p>
+  <div class="form-group">
+    <label for="date">Date Of Birth</label>
+    <input
+      type="date"
+      class="form-control" id="date" formControlName="dateOfBirth">
+  </div>
+  <p class="text-danger"
+     *ngIf="rfEdit.controls.dateOfBirth?.errors?.required && rfEdit.controls.dateOfBirth?.touched">không
+    được để trống</p>
+  <p class="text-danger"
+  *ngIf="rfEdit.controls.dateOfBirth?.errors?.ageError && rfEdit.controls.dateOfBirth?.touched">Tuổi phải lớn hơn 18</p>
+  <label>Gender: </label>
+  <select formControlName="gender">
+    <option value="">---chọn---</option>
+    <option value="1">Nam</option>
+    <option value="0">Nữ</option>
+  </select>
+  <p class="text-danger" *ngIf="rfEdit.controls.gender?.errors?.required && rfEdit.controls.gender?.untouched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="idCard">Id Card</label>
+    <input type="text" class="form-control" id="idCard" formControlName="idCard">
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.idCard?.errors?.required && rfEdit.controls.idCard?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfEdit.controls.idCard?.hasError('pattern') && rfEdit.controls.idCard?.touched">ID car phải
+    có định dạng</p>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" formControlName="phone">
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.phone?.errors?.required && rfEdit.controls.phone?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfEdit.controls.phone?.hasError('pattern') && rfEdit.controls.phone?.touched">ID car phải
+    có định dạng</p>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="text" class="form-control" id="email" formControlName="email">
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.email?.errors?.required && rfEdit.controls.email?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfEdit.controls.email?.errors?.rfEdit && rfEdit.controls.email?.touched">email không
+    đúng định dạng</p>
+  <div class="form-group">
+    <label for="address">Address: </label>
+    <input type="text" class="form-control" id="address" formControlName="address">
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.address?.errors?.required && rfEdit.controls.address?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="cusType">CustomerType: </label>
+    <select id="cusType" formControlName = 'customerType' class="form-control">
+<!--      <option value="{{cusType.id}}">{{cusType.name}}</option>-->
+      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>
+    </select>
+<!--    <select *ngIf="cusType.id!=''" formControlName = 'customerType' class="form-control">-->
+<!--            <option value="{{cusType.id}}">{{cusType.name}}</option>-->
+<!--      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>-->
+<!--    </select>-->
+  </div>
+  <p class="text-danger" *ngIf="rfEdit.controls.customerType?.errors?.required && rfEdit.controls.customerType?.touched">không
+    được để trống</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfEdit.invalid" (click)="update()">Submit</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/customer">Back</button>
+</form>
+

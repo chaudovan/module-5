@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     HeaderComponent,
     NavbarComponent,
     CustomerListComponent,
-    CustomerCreateComponent
+    CustomerCreateComponent,
+    CustomerEditComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,9 @@ import {Teacher} from '../teacher';
 export class TeacherCreateComponent implements OnInit {
   @Output() onCreate = new EventEmitter<Teacher>();
   teacherC: Teacher;
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }

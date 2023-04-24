@@ -8,57 +8,37 @@
   <p class="text-danger" *ngIf="rfCreate.controls.id.touched && rfCreate.controls.id?.errors?.required">Không được
     để trống</p>
   <p class="text-danger" *ngIf="rfCreate.controls.id?.hasError('pattern') && rfCreate.controls.id?.touched">ID phải
-    có định dạng</p>
+    có định dạng KH-xxxx với x là số</p>
 
   <div class="form-group">
     <label for="name">Name</label>
     <input
       type="text"
-      class="form-control" id="name" formControlName="name">
+      class="form-control" id="name" formControlName="cusName">
   </div>
-  <p class="text-danger" *ngIf="rfCreate.controls.name?.touched && rfCreate.controls.name?.errors?.required">
+  <p class="text-danger" *ngIf="rfCreate.controls.cusName?.touched && rfCreate.controls.cusName?.errors?.required">
     Không được để trống</p>
   <div class="form-group">
     <label for="date">Date Of Birth</label>
     <input
-      type="text"
-      class="form-control" id="date" formControlName="date">
+      type="date"
+      class="form-control" id="date" formControlName="dateOfBirth">
   </div>
   <p class="text-danger"
-     *ngIf="rfCreate.controls.date?.errors?.required && rfCreate.controls.date?.touched">không
+     *ngIf="rfCreate.controls.dateOfBirth?.errors?.required && rfCreate.controls.dateOfBirth?.touched">không
     được để trống</p>
-<!--  <p class="text-danger"-->
-<!--     *ngIf="rfCreate.controls.date?.errors?.required && rfCreate.controls.date?.touched">không-->
-<!--    được để trống</p>-->
-<!--  <div class="form-group">-->
-<!--    <label>Country</label>-->
-<!--    <select class="form-control" formControlName="country">>-->
-<!--      <option value="">-&#45;&#45;Chọn country-&#45;&#45;</option>-->
-<!--      <option value="1">-&#45;&#45;Đà Nẵng-&#45;&#45;</option>-->
-<!--      <option value="2">-&#45;&#45;Hà Nội-&#45;&#45;</option>-->
-<!--      <option value="3">-&#45;&#45;Hồ Chí Minh-&#45;&#45;</option>-->
-<!--    </select>-->
-<!--  </div>-->
-<!--  <p class="text-danger" *ngIf="rfCreate.controls.country?.errors?.required && rfCreate.controls.country?.touched">không-->
-<!--    được để trống</p>-->
-
-<!--  <div class="form-group">-->
-<!--    <label for="age">Age</label>-->
-<!--    <input-->
-<!--      type="number"-->
-<!--      class="form-control" id="age" formControlName="age">-->
-<!--  </div>-->
-<!--  <p class="text-danger" *ngIf="rfCreate.controls.age?.errors?.required && rfCreate.controls.age?.touched">không được để-->
-<!--    trống</p>-->
-<!--  <p class="text-danger" *ngIf="rfCreate.controls.age?.errors?.min && rfCreate.controls.age?.touched">Tuổi phải lớn hơn-->
-<!--    18</p>-->
-
+  <p class="text-danger"
+     *ngIf="rfCreate.controls.dateOfBirth?.errors?.ageError && rfCreate.controls.dateOfBirth?.touched">Tuổi phải lớn hơn 18</p>
   <label>Gender: </label>
-  <label>Male</label>
-  <input type="radio" formControlName="gender" value="1">
-  <label>Female</label>
-  <input type="radio" formControlName="gender" value="0">
+  <label>Gender: </label>
+  <select formControlName="gender">
+    <option value="">---chọn---</option>
+    <option value="1">Nam</option>
+    <option value="0">Nữ</option>
+  </select>
 
+  <p class="text-danger" *ngIf="rfCreate.controls.gender?.errors?.required && rfCreate.controls.gender?.touched">không
+    được để trống</p>
   <p class="text-danger" *ngIf="rfCreate.controls.gender?.errors?.required && rfCreate.controls.gender?.untouched">không
     được để trống</p>
   <div class="form-group">
@@ -77,5 +57,30 @@
     được để trống</p>
   <p class="text-danger" *ngIf="rfCreate.controls.phone?.hasError('pattern') && rfCreate.controls.phone?.touched">ID car phải
     có định dạng</p>
-  <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid">Submit</button>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="text" class="form-control" id="email" formControlName="email">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.email?.errors?.required && rfCreate.controls.email?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.email?.errors?.email && rfCreate.controls.email?.touched">email không
+    đúng định dạng</p>
+  <div class="form-group">
+    <label for="address">Address: </label>
+    <input type="text" class="form-control" id="address" formControlName="address">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.address?.errors?.required && rfCreate.controls.address?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="cusType">CustomerType: </label>
+    <select id="cusType" formControlName = 'customerType'>
+      <option value="">---chọn---</option>
+      <option value="{{cusType.id}}">{{cusType.name}}</option>
+      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.customerType?.errors?.required && rfCreate.controls.customerType?.touched">không
+    được để trống</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid" (click)="save()">Submit</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/customer">Back</button>
 </form>
