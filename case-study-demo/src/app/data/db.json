@@ -1,0 +1,236 @@
+{
+  "customerTypes": [
+    {
+      "id": 1,
+      "name": "Diamond"
+    },
+    {
+      "id": 2,
+      "name": "Platinium"
+    },
+    {
+      "id": 3,
+      "name": "Gold"
+    },
+    {
+      "id": 4,
+      "name": "Silver"
+    },
+    {
+      "id": 5,
+      "name": "Member"
+    }
+  ],
+  "customers": [
+    {
+      "id": "KH-0001",
+      "cusName": "Nguyễn Văn A",
+      "dateOfBirth": "1995-02-22",
+      "gender": 1,
+      "idCard": "0010020034",
+      "phone": "0905010203",
+      "email": "nguyenvana@gmaio.com",
+      "address": "Đà Nẵng",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    },
+    {
+      "id": "KH-0002",
+      "cusName": "Nguyễn Văn B",
+      "dateOfBirth": "2000-03-23",
+      "gender": 0,
+      "idCard": "0010020035",
+      "phone": "0905010204",
+      "email": "nguyenvanb@gmaio.com",
+      "address": "Sài Gòn",
+      "customerType": {
+        "id": 2,
+        "name": "Platinium"
+      }
+    },
+    {
+      "id": "KH-0003",
+      "cusName": "Nguyễn Văn c",
+      "dateOfBirth": "2001-02-22",
+      "gender": 1,
+      "idCard": "001002003",
+      "phone": "0905010205",
+      "email": "nguyenvanc@gmaio.com",
+      "address": "Hà Nội",
+      "customerType": {
+        "id": 1,
+        "name": "Diamond"
+      }
+    }
+  ],
+  "positions": [
+    {
+      "id": 1,
+      "name": "Lễ tân"
+    },
+    {
+      "id": 2,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 3,
+      "name": "Chuyên viên"
+    },
+    {
+      "id": 4,
+      "name": "Giám sát"
+    },
+    {
+      "id": 5,
+      "name": "Quản lý"
+    },
+    {
+      "id": 6,
+      "name": "Giám đốc"
+    }
+  ],
+  "educations": [
+    {
+      "id": 1,
+      "name": "Trung cấp"
+    },
+    {
+      "id": 2,
+      "name": "Cao đẳng"
+    },
+    {
+      "id": 3,
+      "name": "Đại học"
+    },
+    {
+      "id": 4,
+      "name": "Sau đại học"
+    }
+  ],
+  "divisions": [
+    {
+      "id": 1,
+      "name": "Sale-Marketing"
+    },
+    {
+      "id": 2,
+      "name": "Hành chính"
+    },
+    {
+      "id": 3,
+      "name": "Phục vụ"
+    },
+    {
+      "id": 4,
+      "name": "Quản lý"
+    }
+  ],
+  "employees": [
+    {
+      "id": "NV-0001",
+      "name": "Nguyễn Ngọc A",
+      "dateOfBirth": "2000-02-22",
+      "idCard": "001222333",
+      "salary": 20000000,
+      "phone": "0905050505",
+      "email": "nguyenngoca@gmail.com",
+      "address": "Ninh Thuận",
+      "position": {
+        "id": 1,
+        "name": "Lễ Tân"
+      },
+      "division": {
+        "id": 3,
+        "name": "Phục vụ"
+      },
+      "education": {
+        "id": 1,
+        "name": "Trung cấp"
+      }
+    },
+    {
+      "id": "NV-0002",
+      "name": "Nguyễn Ngọc B",
+      "dateOfBirth": "2000-05-22",
+      "idCard": "111222333",
+      "salary": 25000000,
+      "phone": "0905060606",
+      "email": "nguyenngocb@gmail.com",
+      "address": "Bình Thuận",
+      "position": {
+        "id": 4,
+        "name": "Giám sát"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "education": {
+        "id": 2,
+        "name": "Cao đẳng"
+      }
+    },
+    {
+      "id": "NV-0003",
+      "name": "Nguyễn Ngọc C",
+      "dateOfBirth": "2000-04-22",
+      "idCard": "221222333",
+      "salary": 30000000,
+      "phone": "0905070707",
+      "email": "nguyenngocc@gmail.com",
+      "address": "Châu Đốc",
+      "position": {
+        "id": 5,
+        "name": "Quản lý"
+      },
+      "division": {
+        "id": 1,
+        "name": "Sale-Marketing"
+      },
+      "education": {
+        "id": 3,
+        "name": "Đại học"
+      }
+    },
+    {
+      "id": "NV-0004",
+      "name": "Nguyễn Ngọc D",
+      "dateOfBirth": "2000-02-22",
+      "idCard": "001222333",
+      "salary": 20000000,
+      "phone": "0905050505",
+      "email": "nguyenngocd@gmail.com",
+      "address": "Ninh Thuận",
+      "position": {
+        "id": 6,
+        "name": "Giám đốc"
+      },
+      "division": {
+        "id": 2,
+        "name": "Hành chính"
+      },
+      "education": {
+        "id": 4,
+        "name": "Sau đại học"
+      }
+    },
+    {
+      "id": "NV-0005",
+      "name": "Tài Anh",
+      "dateOfBirth": "1999-02-16",
+      "idCard": "000000000",
+      "salary": 1500000,
+      "phone": "0905030303",
+      "email": "tai11@gmail.com",
+      "address": "Đà Nẵng",
+      "position": 2,
+      "education": {
+        "id": 3,
+        "name": "Đại học"
+      },
+      "division": 3
+    }
+  ]
+}

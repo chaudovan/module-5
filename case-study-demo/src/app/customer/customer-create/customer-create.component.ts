@@ -22,7 +22,9 @@ export class CustomerCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.cusTypeList = this.customerTypeService.findAll();
+    this.customerTypeService.findAll().subscribe(next => {
+      this.cusTypeList = next;
+    });
     this.rfCreate = new FormGroup({
       id: new FormControl('', [Validators.required, Validators.pattern(/^KH-\d{4}$/)]),
       cusName: new FormControl('', [Validators.required]),
@@ -48,16 +50,10 @@ export class CustomerCreateComponent implements OnInit {
 
 
   save() {
-    const customerCreate = this.rfCreate.value;
-    const id = +customerCreate.customerType;
-    console.log(id);
-    this.cusType = this.customerTypeService.findById(id);
-    customerCreate.customerType = {
-      id: this.cusType.id,
-      name: this.cusType.name
-    };
-    this.customerService.save(customerCreate);
-    this.router.navigateByUrl('/customer');
+    this.customerService.save(this.rfCreate.value).subscribe( next => {
+      this.router.navigateByUrl('/customer');
+      alert('Thêm thành công');
+    });
   }
 
 }

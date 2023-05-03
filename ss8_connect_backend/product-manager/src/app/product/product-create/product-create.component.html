@@ -1,0 +1,19 @@
+<<form novalidate [formGroup]="rfCreate">
+  <div>
+    <label>Name: </label>
+    <input type="text" formControlName = 'name'>
+  </div>
+  <div>
+    <label>Price: </label>
+    <input type="number" formControlName = 'price'>
+  </div>
+  <div>
+    <label>Description: </label>
+    <input type="text" formControlName = 'description'>
+  </div>
+  <select formControlName="category">
+      <option value="">---chọn---</option>
+      <option *ngFor="let category of listCategory" [ngValue]="category">{{category.name}}</option>
+  </select>
+  <button type="submit" (click)="save()">Save</button>
+</form>

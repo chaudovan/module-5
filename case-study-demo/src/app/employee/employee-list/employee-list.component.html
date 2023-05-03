@@ -1,0 +1,66 @@
+<h2>List Cutomer</h2>
+<a name="" class="btn btn-primary" routerLink="/employee/create" role="button">Create New Enployee</a>
+<table class="table table-primary" style="text-align: center">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Date Of Birth</th>
+    <th>IdCard</th>
+    <th>Salary</th>
+    <th>Phone</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>Position</th>
+    <th>Division</th>
+    <th>Education</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employeeList,index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{employee.id}}</td>
+    <td>{{employee.name}}</td>
+    <td>{{employee.dateOfBirth}}</td>
+    <td>{{employee.idCard}}</td>
+    <td>{{employee.salary}}</td>
+    <td>{{employee.phone}}</td>
+    <td>{{employee.email}}</td>
+    <td>{{employee.address}}</td>
+    <td>{{employee.position.name}}</td>
+    <td>{{employee.division.name}}</td>
+    <td>{{employee.education.name}}</td>
+    <td>
+      <a  class="btn btn-primary" routerLink="/employee/edit/{{employee.id}}"
+          role="button">Edit</a>|
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(employee)" >
+        Delete
+      </button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want delete id: {{deleteId}} with name is {{deleteName}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(deleteId)">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

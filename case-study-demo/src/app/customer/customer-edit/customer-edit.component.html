@@ -1,4 +1,4 @@
-<form novalidate [formGroup]="rfEdit">
+<form novalidate *ngIf="rfEdit" [formGroup]="rfEdit">
   <div class="form-group">
     <label for="id">ID</label>
     <input
@@ -71,7 +71,7 @@
     <label for="cusType">CustomerType: </label>
     <select id="cusType" formControlName = 'customerType' class="form-control">
 <!--      <option value="{{cusType.id}}">{{cusType.name}}</option>-->
-      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>
+      <option *ngFor="let customerType of cusTypeList" [ngValue]="customerType.id">{{customerType.name}}</option>
     </select>
 <!--    <select *ngIf="cusType.id!=''" formControlName = 'customerType' class="form-control">-->
 <!--            <option value="{{cusType.id}}">{{cusType.name}}</option>-->

@@ -1,0 +1,54 @@
+<h2>List Product IPhone</h2>
+<a name="" class="btn btn-primary" routerLink="/product/create" role="button">Create New Product</a>
+<table class="table table-primary" style="text-align: center">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Description</th>
+    <th>Category</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of productList,index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>{{product.category.name}}</td>
+    <td>
+      <a name="" id="" class="btn btn-primary" routerLink="/product/detail/{{product.id}}"
+         role="button">Detail</a>|
+      <a  class="btn btn-primary" routerLink="/product/edit/{{product.id}}"
+          role="button">Edit</a>|
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(product)" >
+        Delete
+      </button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want delete id: {{idDelete}} with name is {{nameDelete}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(idDelete)">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

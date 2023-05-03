@@ -1,5 +1,9 @@
 <h2>List Cutomer</h2>
 <a name="" class="btn btn-primary" routerLink="/customer/create" role="button">Create New Customer</a>
+<div>
+<input name="searchName" placeholder="nhập tên" [(ngModel)]="searchName">
+<a name="" class="btn btn-primary" role="button" (click)="search()">Search</a>
+</div>
 <table class="table table-primary" style="text-align: center">
   <thead>
   <tr>

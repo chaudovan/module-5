@@ -1,0 +1,99 @@
+<form novalidate [formGroup]="rfCreate">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input
+      type="text"
+      class="form-control" id="id" formControlName="id">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.id.touched && rfCreate.controls.id?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.id?.hasError('pattern') && rfCreate.controls.id?.touched">ID phải
+    có định dạng KH-xxxx với x là số</p>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control" id="name" formControlName="name">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.cusName?.touched && rfCreate.controls.cusName?.errors?.required">
+    Không được để trống</p>
+  <div class="form-group">
+    <label for="date">Date Of Birth</label>
+    <input
+      type="date"
+      class="form-control" id="date" formControlName="dateOfBirth">
+  </div>
+  <p class="text-danger"
+     *ngIf="rfCreate.controls.dateOfBirth?.errors?.required && rfCreate.controls.dateOfBirth?.touched">không
+    được để trống</p>
+  <p class="text-danger"
+     *ngIf="rfCreate.controls.dateOfBirth?.errors?.ageError && rfCreate.controls.dateOfBirth?.touched">Tuổi phải lớn hơn 18</p>
+  <div class="form-group">
+    <label for="idCard">Id Card</label>
+    <input type="text" class="form-control" id="idCard" formControlName="idCard">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.idCard?.errors?.required && rfCreate.controls.idCard?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.idCard?.hasError('pattern') && rfCreate.controls.idCard?.touched">ID car phải
+    có định dạng</p>
+  <div class="form-group">
+    <label for="salary">Salary</label>
+    <input type="number" class="form-control" id="salary" formControlName="salary">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.salary?.errors?.required && rfCreate.controls.salary?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.salary?.errors?.salaryError && rfCreate.controls.salary?.touched">ID car phải
+    có định dạng</p>
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="text" class="form-control" id="phone" formControlName="phone">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.phone?.errors?.required && rfCreate.controls.phone?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.phone?.hasError('pattern') && rfCreate.controls.phone?.touched">ID car phải
+    có định dạng</p>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="text" class="form-control" id="email" formControlName="email">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.email?.errors?.required && rfCreate.controls.email?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.email?.errors?.email && rfCreate.controls.email?.touched">email không
+    đúng định dạng</p>
+  <div class="form-group">
+    <label for="address">Address: </label>
+    <input type="text" class="form-control" id="address" formControlName="address">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.address?.errors?.required && rfCreate.controls.address?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="position">Position: </label>
+    <select id="position" formControlName = 'position'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let position of listPositon" [ngValue]="position">{{position.name}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.position?.errors?.required && rfCreate.controls.position?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="education">Education: </label>
+    <select id="education" formControlName = 'education'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let education of listEducation" [ngValue]="education">{{education.name}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.education?.errors?.required && rfCreate.controls.education?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="division">Division: </label>
+    <select id="division" formControlName = 'division'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let division of listDivison" [ngValue]="division">{{division.name}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.division?.errors?.required && rfCreate.controls.division?.touched">không
+    được để trống</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid" (click)="save()">Submit</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/employee">Back</button>
+</form>

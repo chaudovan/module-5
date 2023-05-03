@@ -8,8 +8,12 @@ import { HeaderComponent } from './header/header.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { CustomerListComponent } from './customer/customer-list/customer-list.component';
 import { CustomerCreateComponent } from './customer/customer-create/customer-create.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
+import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
+import { EmployeeCreateComponent } from './employee/employee-create/employee-create.component';
+import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,12 +23,17 @@ import { CustomerEditComponent } from './customer/customer-edit/customer-edit.co
     NavbarComponent,
     CustomerListComponent,
     CustomerCreateComponent,
-    CustomerEditComponent
+    CustomerEditComponent,
+    EmployeeListComponent,
+    EmployeeCreateComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

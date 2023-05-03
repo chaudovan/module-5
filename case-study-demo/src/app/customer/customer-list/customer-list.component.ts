@@ -11,10 +11,13 @@ export class CustomerListComponent implements OnInit {
   customerList: Customer[];
   deleteId: string;
   deleteName: string;
+  searchName = '';
   constructor(private customerService: CustomerService) { }
 
   ngOnInit(): void {
-    this.customerList = this.customerService.findAll();
+    this.customerService.findAll(this.searchName).subscribe(next => {
+      this.customerList = next;
+    });
   }
 
   showDelete(customer: Customer) {
@@ -22,9 +25,14 @@ export class CustomerListComponent implements OnInit {
     this.deleteName = customer.cusName;
   }
 
-  delete(idDelete: any) {
-    this.customerList = this.customerList.filter(customer => {
-      return customer.id !== idDelete;
+  delete(idDelete: string) {
+    this.customerService.deleteCus(idDelete).subscribe(() => {
+      this.ngOnInit();
+      alert('Xóa Thành Công');
     });
+  }
+
+  search() {
+    this.ngOnInit();
   }
 }

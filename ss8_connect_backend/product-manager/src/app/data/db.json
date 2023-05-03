@@ -1,0 +1,48 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Iphone 13",
+      "price": 1300,
+      "description": "New",
+      "category": {
+        "id": 1,
+        "name": "IPhone"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Iphone 13 pro",
+      "price": 1400,
+      "description": "Like New 99%",
+      "category": {
+        "id": 1,
+        "name": "IPhone"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Samsung Note 10",
+      "price": 1500,
+      "description": "New",
+      "category": {
+        "id": 2,
+        "name": "Samsung"
+      }
+    }
+  ],
+  "categorys": [
+    {
+      "id": 1,
+      "name": "IPhone"
+    },
+    {
+      "id": 2,
+      "name": "Samsung"
+    },
+    {
+      "id": 3,
+      "name": "LG"
+    }
+  ]
+}

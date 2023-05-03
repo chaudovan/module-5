@@ -30,7 +30,6 @@
   <p class="text-danger"
      *ngIf="rfCreate.controls.dateOfBirth?.errors?.ageError && rfCreate.controls.dateOfBirth?.touched">Tuổi phải lớn hơn 18</p>
   <label>Gender: </label>
-  <label>Gender: </label>
   <select formControlName="gender">
     <option value="">---chọn---</option>
     <option value="1">Nam</option>
@@ -75,8 +74,7 @@
     <label for="cusType">CustomerType: </label>
     <select id="cusType" formControlName = 'customerType'>
       <option value="">---chọn---</option>
-      <option value="{{cusType.id}}">{{cusType.name}}</option>
-      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>
+      <option *ngFor="let customerType of cusTypeList" [ngValue]="customerType">{{customerType.name}}</option>
     </select>
   </div>
   <p class="text-danger" *ngIf="rfCreate.controls.customerType?.errors?.required && rfCreate.controls.customerType?.touched">không
