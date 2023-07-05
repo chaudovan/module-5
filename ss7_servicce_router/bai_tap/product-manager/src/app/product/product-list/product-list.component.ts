@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Product} from '../../product';
 import {ProductService} from '../../service/product.service';
-
+import {ToastrService} from 'ngx-toastr';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -12,7 +12,8 @@ export class ProductListComponent implements OnInit {
   idDelete: number;
   nameDelete: string;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService,
+              private toastrService: ToastrService) {
   }
 
   ngOnInit(): void {

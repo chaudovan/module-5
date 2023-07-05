@@ -1,0 +1,58 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "New",
+      "category": {
+        "id": 1,
+        "name": "mot"
+      }
+    },
+    {
+      "id": 2,
+      "name": "sd",
+      "price": 123,
+      "description": "3131231231231",
+      "category": {
+        "id": 2,
+        "name": "hai"
+      }
+    },
+    {
+      "id": 3,
+      "name": "sadsf",
+      "price": 34234,
+      "description": "dssadasd",
+      "category": {
+        "id": 2,
+        "name": "hai"
+      }
+    },
+    {
+      "id": 4,
+      "name": "1",
+      "price": 1,
+      "description": "aaa",
+      "category": {
+        "id": 2,
+        "name": "hai"
+      }
+    }
+  ],
+  "categories": [
+    {
+      "name": "mot",
+      "id": 1
+    },
+    {
+      "id": 2,
+      "name": "hai"
+    },
+    {
+      "name": "ba",
+      "id": 3
+    }
+  ]
+}

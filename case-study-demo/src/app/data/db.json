@@ -27,7 +27,7 @@
       "cusName": "Nguyễn Văn A",
       "dateOfBirth": "1995-02-22",
       "gender": 1,
-      "idCard": "0010020034",
+      "idCard": "001002003",
       "phone": "0905010203",
       "email": "nguyenvana@gmaio.com",
       "address": "Đà Nẵng",
@@ -41,7 +41,7 @@
       "cusName": "Nguyễn Văn B",
       "dateOfBirth": "2000-03-23",
       "gender": 0,
-      "idCard": "0010020035",
+      "idCard": "001002003",
       "phone": "0905010204",
       "email": "nguyenvanb@gmaio.com",
       "address": "Sài Gòn",
@@ -138,16 +138,16 @@
       "email": "nguyenngoca@gmail.com",
       "address": "Ninh Thuận",
       "position": {
-        "id": 1,
-        "name": "Lễ Tân"
-      },
-      "division": {
-        "id": 3,
-        "name": "Phục vụ"
+        "id": 6,
+        "name": "Giám đốc"
       },
       "education": {
         "id": 1,
         "name": "Trung cấp"
+      },
+      "division": {
+        "id": 3,
+        "name": "Phục vụ"
       }
     },
     {
@@ -215,22 +215,91 @@
         "id": 4,
         "name": "Sau đại học"
       }
+    }
+  ],
+  "rentType": [
+    {
+      "id": 1,
+      "name": "Year"
     },
     {
-      "id": "NV-0005",
-      "name": "Tài Anh",
-      "dateOfBirth": "1999-02-16",
-      "idCard": "000000000",
-      "salary": 1500000,
-      "phone": "0905030303",
-      "email": "tai11@gmail.com",
-      "address": "Đà Nẵng",
-      "position": 2,
-      "education": {
-        "id": 3,
-        "name": "Đại học"
+      "id": 2,
+      "name": "Month"
+    },
+    {
+      "id": 3,
+      "name": "Day"
+    },
+    {
+      "id": 4,
+      "name": "Hour"
+    }
+  ],
+  "facility": [
+    {
+      "id": "DV-0001",
+      "name": "BEACH FRONT VILLAS",
+      "area": 150,
+      "floor": 3,
+      "maxPeople": 5,
+      "cost": 1000,
+      "rentType": {
+        "id": 1,
+        "name": "Year"
       },
-      "division": 3
+      "status": 0
+    },
+    {
+      "id": "DV-0002",
+      "name": "BEACH FRONT HOUSE",
+      "area": 100,
+      "floor": 2,
+      "maxPeople": 4,
+      "cost": 900,
+      "rentType": {
+        "id": 3,
+        "name": "Day"
+      },
+      "status": 1
+    },
+    {
+      "id": "DV-0003",
+      "name": "BEACH FRONT ROOM",
+      "area": 70,
+      "floor": 1,
+      "maxPeople": 2,
+      "cost": 800,
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "status": 1
+    },
+    {
+      "id": "DV-0004",
+      "name": "BEACH FRONT ROOM",
+      "area": 60,
+      "floor": 1,
+      "maxPeople": 2,
+      "cost": 700,
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "status": 0
+    },
+    {
+      "id": "DV-0005",
+      "name": "ROOM",
+      "area": 55,
+      "floor": 1,
+      "maxPeople": 2,
+      "cost": 150,
+      "rentType": {
+        "id": 2,
+        "name": "Month"
+      },
+      "status": 1
     }
   ]
 }

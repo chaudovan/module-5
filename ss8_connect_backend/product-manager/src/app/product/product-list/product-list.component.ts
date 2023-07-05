@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Product} from '../../model/product';
 import {ProductService} from '../../service/product.service';
 import {Router} from '@angular/router';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-list',
@@ -13,6 +14,7 @@ export class ProductListComponent implements OnInit {
   idDelete: number;
   nameDelete: string;
   constructor(private productService: ProductService,
+              private toastrService: ToastrService,
               private router: Router) {
   }
 
@@ -24,7 +26,7 @@ export class ProductListComponent implements OnInit {
 
   delete(id: number) {
     this.productService.delete(id).subscribe(() => {
-      alert('Xóa thành công');
+      this.toastrService.success('Delete Done');
       this.router.navigateByUrl('product');
       this.ngOnInit();
     });

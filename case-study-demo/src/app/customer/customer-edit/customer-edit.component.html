@@ -30,11 +30,13 @@
   <p class="text-danger"
   *ngIf="rfEdit.controls.dateOfBirth?.errors?.ageError && rfEdit.controls.dateOfBirth?.touched">Tuổi phải lớn hơn 18</p>
   <label>Gender: </label>
-  <select formControlName="gender">
-    <option value="">---chọn---</option>
-    <option value="1">Nam</option>
-    <option value="0">Nữ</option>
-  </select>
+  <input type="radio"  formControlName="gender" value="1">Nam
+  <input type="radio"  formControlName="gender" value="0">Nữ
+<!--  <select formControlName="gender">-->
+<!--    <option value="">-&#45;&#45;chọn-&#45;&#45;</option>-->
+<!--    <option value="1">Nam</option>-->
+<!--    <option value="0">Nữ</option>-->
+<!--  </select>-->
   <p class="text-danger" *ngIf="rfEdit.controls.gender?.errors?.required && rfEdit.controls.gender?.untouched">không
     được để trống</p>
   <div class="form-group">
@@ -71,7 +73,7 @@
     <label for="cusType">CustomerType: </label>
     <select id="cusType" formControlName = 'customerType' class="form-control">
 <!--      <option value="{{cusType.id}}">{{cusType.name}}</option>-->
-      <option *ngFor="let customerType of cusTypeList" [ngValue]="customerType.id">{{customerType.name}}</option>
+      <option *ngFor="let customerType of cusTypeList" [ngValue]="customerType">{{customerType.name}}</option>
     </select>
 <!--    <select *ngIf="cusType.id!=''" formControlName = 'customerType' class="form-control">-->
 <!--            <option value="{{cusType.id}}">{{cusType.name}}</option>-->

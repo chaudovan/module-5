@@ -1,0 +1,61 @@
+<h2>List Facility</h2>
+<a name="" class="btn btn-primary" routerLink="/facility/create" role="button">Create New Facility</a>
+<table class="table table-primary" style="text-align: center">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Area</th>
+    <th>Floor</th>
+    <th>Max People</th>
+    <th>Cost</th>
+    <th>Rent Type</th>
+    <th>Statuss</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let facility of facilityList,index as i">
+    <td scope="row">{{i+1}}</td>
+    <td>{{facility.id}}</td>
+    <td>{{facility.name}}</td>
+    <td>{{facility.area}}</td>
+    <td>{{facility.floor}}</td>
+    <td>{{facility.maxPeople}}</td>
+    <td>{{facility.cost}}</td>
+    <td>{{facility.rentType.name}}</td>
+    <td *ngIf="facility.status == 0">Rented</td>
+    <td *ngIf="facility.status == 1">Not rented yet</td>
+    <td>
+      <a  class="btn btn-primary" routerLink="/facility/edit/{{facility.id}}"
+          role="button">Edit</a>|
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(facility)" >
+        Delete
+      </button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Do you want delete id: {{deleteId}} with name is {{deleteName}}
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(deleteId)">Yes</button>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {CustomerService} from '../../service/customer.service';
 import {Customer} from '../../model/customer';
+import {CustomerType} from '../../model/customer-type';
+import {CustomerTypeService} from '../../service/customer-type.service';
 
 @Component({
   selector: 'app-customer-list',
@@ -12,11 +14,18 @@ export class CustomerListComponent implements OnInit {
   deleteId: string;
   deleteName: string;
   searchName = '';
-  constructor(private customerService: CustomerService) { }
+  cusTypeList: CustomerType[];
+
+  constructor(private customerService: CustomerService,
+              private customerTypeService: CustomerTypeService) {
+  }
 
   ngOnInit(): void {
-    this.customerService.findAll(this.searchName).subscribe(next => {
+    this.customerService.findAll().subscribe(next => {
       this.customerList = next;
+    });
+    this.customerTypeService.findAll().subscribe(next => {
+      this.cusTypeList = next;
     });
   }
 
@@ -32,7 +41,9 @@ export class CustomerListComponent implements OnInit {
     });
   }
 
-  search() {
-    this.ngOnInit();
+  search(name: string, idCusType: string, dayStar: string, dayEnd: string) {
+    this.customerService.search(name, idCusType, dayStar, dayEnd).subscribe(next => {
+      this.customerList = next;
+    });
   }
 }

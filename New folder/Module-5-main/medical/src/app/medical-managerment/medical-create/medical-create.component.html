@@ -1,0 +1,71 @@
+<div class="container">
+  <div class="title">Thêm bệnh án</div>
+  <div class="content">
+    <form [formGroup]="medicalForm" (ngSubmit)="submit()">
+      <div class="user-details">
+        <div class="input-box">
+          <span class="details">Mã bệnh án</span>
+          <input type="text" formControlName="medicalCode" >
+        </div>
+        <div class="input-box">
+          <span class="details">Mã bệnh nhân</span>
+          <select class="form-control" id="category" formControlName="patient">
+            <option value="" disabled>Choose</option>
+            <option *ngFor="let c of patientList" [ngValue]="c" >{{c.patientCode}}</option>
+          </select>
+        </div>
+        <div class="input-box">
+          <span class="details">Tên bệnh nhân</span>
+          <input type="text" formControlName="patientName" placeholder="Enter your name" >
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.name.hasError('required') && benhAnForm.controls.name.touched">-->
+<!--            Không được để trống</p>-->
+<!--          <p style="color:red" *ngIf="benhAnForm.controls.name.hasError('pattern')"> Tên bệnh nhân không chứa số</p>-->
+        </div>
+        <div class="input-box">
+          <span class="details">Ngày nhập viện</span>
+          <input type="date" formControlName="startDay" required>
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.ngayNhap.hasError('required') && benhAnForm.controls.ngayNhap.touched">-->
+<!--            Không được để trống</p>-->
+        </div>
+        <div class="input-box">
+          <span class="details">Ngày ra viện</span>
+          <input type="date" formControlName="endDay" required>
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.ngayRa.hasError('required') && benhAnForm.controls.ngayRa.touched">-->
+<!--            Không được để trống</p>-->
+        </div>
+        <div class="input-box">
+          <span class="details">Lý do ra viện</span>
+          <input type="text" formControlName="reason" required>
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.lyDo.hasError('required') && benhAnForm.controls.lyDo.touched">-->
+<!--            Không được để trống</p>-->
+        </div>
+        <div class="input-box">
+          <span class="details">Phương pháp điều trị</span>
+          <input type="text" formControlName="treatments" required>
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.phuongPhap.hasError('required') && benhAnForm.controls.phuongPhap.touched">-->
+<!--            Không được để trống</p>-->
+        </div>
+        <div class="input-box">
+          <span class="details">Bác sĩ điều trị</span>
+          <input type="text" formControlName="doctor" required>
+<!--          <p style="color:red"-->
+<!--             *ngIf="benhAnForm.controls.bacSi.hasError('required') && benhAnForm.controls.bacSi.touched">-->
+<!--            Không được để trống</p>-->
+        </div>
+      </div>
+      <div class="button">
+        <input type="submit" value="Save">
+      </div>
+    </form>
+  </div>
+</div>
+
+
+
+
+

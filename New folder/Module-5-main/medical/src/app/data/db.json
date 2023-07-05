@@ -1,0 +1,102 @@
+{
+  "medical": [
+    {
+      "id": 1,
+      "medicalCode": "BA-001",
+      "patient": {
+        "id": 1,
+        "patientCode": "BN-345"
+      },
+      "patientName": "Nguyen Van An Man",
+      "startDay": "2022-08-30",
+      "endDay": "2022-08-02",
+      "reason": "Dau Bung",
+      "treatments": "Uong Thuoc",
+      "doctor": "Tran Van Hai"
+    },
+    {
+      "id": 2,
+      "medicalCode": "BA-002",
+      "patient": {
+        "id": 1,
+        "patientCode": "BN-345"
+      },
+      "patientName": "Nguyen Van An Man",
+      "startDay": "2022-08-30",
+      "endDay": "2022-08-02",
+      "reason": "Dau Bung",
+      "treatments": "Uong Thuoc",
+      "doctor": "Tran Van Hai"
+    },
+    {
+      "id": 3,
+      "medicalCode": "BA-003",
+      "patient": {
+        "id": 2,
+        "patientCode": "BN-222"
+      },
+      "patientName": "Nguyen Van An Man",
+      "startDay": "2022-08-30",
+      "endDay": "2022-08-02",
+      "reason": "Dau Bung",
+      "treatments": "Uong Thuoc",
+      "doctor": "Tran Van Hai"
+    },
+    {
+      "id": 4,
+      "medicalCode": "1",
+      "patient": {
+        "id": 3,
+        "patientCode": "BN-333"
+      },
+      "patientName": "1",
+      "startDay": "2022-08-31",
+      "endDay": "2022-08-18",
+      "reason": "1",
+      "treatments": "1",
+      "doctor": "1"
+    },
+    {
+      "medicalCode": "12",
+      "patient": {
+        "id": 3,
+        "patientCode": "BN-333"
+      },
+      "patientName": "12",
+      "startDay": "2022-08-11",
+      "endDay": "2022-08-26",
+      "reason": "12",
+      "treatments": "12",
+      "doctor": "12",
+      "id": 5
+    },
+    {
+      "medicalCode": "123",
+      "patient": {
+        "id": 2,
+        "patientCode": "BN-222"
+      },
+      "patientName": "123",
+      "startDay": "2022-08-10",
+      "endDay": "2022-08-24",
+      "reason": "123",
+      "treatments": "123",
+      "doctor": "123",
+      "id": 6
+    }
+  ],
+  "patient": [
+    {
+      "id": 1,
+      "patientCode": "BN-111"
+    },
+    {
+      "id": 2,
+      "patientCode": "BN-222"
+    },
+    {
+      "id": 3,
+      "patientCode": "BN-333"
+    }
+  ]
+}

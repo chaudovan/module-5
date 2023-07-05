@@ -51,9 +51,9 @@ export class EmployeeEditComponent implements OnInit {
           phone: new FormControl(employee.phone, [Validators.required, Validators.pattern(/^(090|091|(\(84\)\+90|\(84\)\+91))\d{7}$/)]),
           email: new FormControl(employee.email, [Validators.required, Validators.email]),
           address: new FormControl(employee.address, [Validators.required]),
-          position: new FormControl(employee.position.id, [Validators.required]),
-          education: new FormControl(employee.education.id, [Validators.required]),
-          division: new FormControl(employee.division.id, [Validators.required])
+          position: new FormControl(this.listPositon.filter(item => item.id === employee.position.id)[0], [Validators.required]),
+          education: new FormControl(this.listEducation.filter(item => item.id === employee.education.id)[0], [Validators.required]),
+          division: new FormControl(this.listDivison.filter(item => item.id === employee.division.id)[0], [Validators.required])
         });
       });
     });
@@ -78,28 +78,9 @@ export class EmployeeEditComponent implements OnInit {
   }
 
   update() {
-    const employeeUpdate = this.rfEdit.value;
-    this.educationService.findById(employeeUpdate.education).subscribe(education => {
-      employeeUpdate.education = {
-        id: education.id,
-        name: education.name
-      };
-      this.divisionService.findById(employeeUpdate.division).subscribe(division => {
-        employeeUpdate.division = {
-          id: division.id,
-          name: division.name
-        };
-        this.positionService.findById(employeeUpdate.position).subscribe(position => {
-          employeeUpdate.position = {
-            id: position.id,
-            name: position.name
-          };
-          this.employeeService.updateEmployee(this.id, this.rfEdit.value).subscribe(next => {
-            this.router.navigateByUrl('/employee');
-            alert('Sửa thành công');
-          });
-        });
-      });
+    this.employeeService.updateEmployee(this.id, this.rfEdit.value).subscribe(next => {
+      this.router.navigateByUrl('/employee');
+      alert('Sửa thành công');
     });
   }
 }

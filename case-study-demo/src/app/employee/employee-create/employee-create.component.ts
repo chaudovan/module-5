@@ -71,6 +71,11 @@ export class EmployeeCreateComponent implements OnInit {
   }
 
   save() {
+    const employee = this.rfCreate.value;
+    this.employeeService.findById(employee.id).subscribe(next => {
+      this.router.navigateByUrl('/employee/create');
+      alert('ID ĐÃ TỒN TẠI');
+    });
     this.employeeService.save(this.rfCreate.value).subscribe( next => {
       this.router.navigateByUrl('/employee');
       alert('Thêm thành công');

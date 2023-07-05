@@ -1,0 +1,84 @@
+<h2>Danh sách các tin</h2>
+<a name="" class="btn btn-primary" routerLink="/nhadat/create" role="button">Thêm Mới</a>
+<div>
+  <label>Diện Tích: </label>
+  <input #dientich placeholder="nhập diện tích" [(ngModel)]="dienTich">
+  <label>Giá: </label>
+  <input #gia placeholder="nhập giá" [(ngModel)]="gia1" >
+  <div class="input-group">
+    <label for="cusType">Hướng: </label>
+    <select #huong class="form-select" name="" id="cusType">
+      <option value="">---chọn---</option>
+      <option *ngFor="let huong of listHuong" value="{{huong.id}}">{{huong.name}}</option>
+    </select>
+  </div>
+  <a name="" class="btn btn-primary" role="button"
+     (click)="search(dientich.value,gia.value,huong.value)">Search</a>
+</div>
+<table class="table table-primary" style="text-align: center">
+  <thead>
+  <tr>
+    <th>STT</th>
+    <th>Tựa Đề</th>
+    <th>Đăng Tin</th>
+    <th>Danh Mục</th>
+    <th>Trạng Thái</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let nhaDat of listNhaDat,index as i">
+    <td scope="row">{{i + 1}}</td>
+    <td>{{nhaDat.tuaDe}}</td>
+    <td>{{nhaDat.dangTin}}</td>
+    <td>{{nhaDat.danhMuc.name}}</td>
+    <td>{{nhaDat.tinhTrang}}</td>
+    <td>
+      <a class="btn btn-primary" href="#"
+         role="button">Edit</a>|
+    </td>
+  </tr>
+  </tbody>
+</table>
+<!--Modal-->
+<!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>-->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+<!--                aria-label="Close"></button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        Do you want delete id: {{idDelete}} with name is {{nameDelete}}-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>-->
+<!--        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="delete(idDelete)">Yes</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--&lt;!&ndash;modal delete All&ndash;&gt;-->
+<!--<div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel"-->
+<!--     aria-hidden="true">-->
+<!--  <div class="modal-dialog">-->
+<!--    <div class="modal-content">-->
+<!--      <div class="modal-header">-->
+<!--        <h5 class="modal-title" id="exampleModalLabel1">Delete</h5>-->
+<!--        <button type="button" class="btn-close" data-bs-dismiss="modal"-->
+<!--                aria-label="Close"></button>-->
+<!--      </div>-->
+<!--      <div class="modal-body">-->
+<!--        Do you want delete All-->
+<!--      </div>-->
+<!--      <div class="modal-footer">-->
+<!--        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>-->
+<!--        <button type="button" class="btn btn-danger" data-bs-dismiss="modal" (click)="deleteAll()">Yes</button>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+

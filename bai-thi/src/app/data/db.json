@@ -1,0 +1,142 @@
+{
+  "danhMucs": [
+    {
+      "id": 1,
+      "name": "Nhà Đất"
+    },
+    {
+      "id": 2,
+      "name": "Bất Động Sản"
+    }
+  ],
+  "huongs": [
+    {
+      "id": 1,
+      "name": "Đông"
+    },
+    {
+      "id": 2,
+      "name": "Tây"
+    },
+    {
+      "id": 3,
+      "name": "Nam"
+    },
+    {
+      "id": 4,
+      "name": "Bắc"
+    }
+  ],
+  "vungMiens": [
+    {
+      "id": 1,
+      "name": "Đà Nẵng"
+    },
+    {
+      "id": 2,
+      "name": "Hà Nội"
+    },
+    {
+      "id": 3,
+      "name": "Sài Gòn"
+    }
+  ],
+  "nhaDats": [
+    {
+      "id": 1,
+      "name": "Cá Nhân",
+      "tinhTrang": "Mới",
+      "dangTin": "Cần Bán",
+      "diaChi": "280 Trần Hưng Đạo",
+      "dienTich": 22,
+      "tuaDe": "Cần bán",
+      "noiDung": "Bán Nhanh",
+      "gia": 200000000,
+      "hinhAnh": "hinhanh1",
+      "huong": {
+        "id": 4,
+        "name": "Bắc"
+      },
+      "danhMuc": {
+        "id": 1,
+        "name": "Nhà Đất"
+      },
+      "vungMien": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      }
+    },
+    {
+      "id": 2,
+      "name": "Công Ty",
+      "tinhTrang": "Mới",
+      "dangTin": "Cần Bán",
+      "diaChi": "280 Trần Hưng Đạo",
+      "dienTich": 500,
+      "tuaDe": "Cần bán Gấp",
+      "noiDung": "Bán Nhanh",
+      "gia": 500000000,
+      "hinhAnh": "hinhanh2",
+      "huong": {
+        "id": 3,
+        "name": "Nam"
+      },
+      "danhMuc": {
+        "id": 2,
+        "name": "Bất Động Sản"
+      },
+      "vungMien": {
+        "id": 2,
+        "name": "Hà Nội"
+      }
+    },
+    {
+      "name": "Cá Nhân",
+      "tinhTrang": "Mới",
+      "dangTin": "Cần Mua",
+      "diaChi": "280 Trần Hưng Dạo",
+      "dienTich": 25,
+      "tuaDe": "Cần Cho Thuê",
+      "noiDung": "Cho Thuê Lâu Dài",
+      "gia": 100000000,
+      "hinhAnh": "",
+      "huong": {
+        "id": 1,
+        "name": "Đông"
+      },
+      "danhMuc": {
+        "id": 1,
+        "name": "Nhà Đất"
+      },
+      "vungMien": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "id": 3
+    },
+    {
+      "name": "Cá Nhân",
+      "tinhTrang": "Mới",
+      "dangTin": "Cần Bán",
+      "diaChi": "280 Trần Hưng Dạo",
+      "dienTich": 22.2,
+      "tuaDe": "Cần Cho Thuê",
+      "noiDung": "Cho Thuê Lâu Dài",
+      "gia": 100000000,
+      "hinhAnh": "",
+      "huong": {
+        "id": 1,
+        "name": "Đông"
+      },
+      "danhMuc": {
+        "id": 1,
+        "name": "Nhà Đất"
+      },
+      "vungMien": {
+        "id": 1,
+        "name": "Đà Nẵng"
+      },
+      "id": 4
+    }
+  ]
+}

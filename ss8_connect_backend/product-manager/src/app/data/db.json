@@ -21,14 +21,14 @@
       }
     },
     {
-      "id": 3,
-      "name": "Samsung Note 10",
-      "price": 1500,
-      "description": "New",
+      "name": "ádasd",
+      "price": 123123,
+      "description": "zxczsd",
       "category": {
-        "id": 2,
-        "name": "Samsung"
-      }
+        "id": 1,
+        "name": "IPhone"
+      },
+      "id": 3
     }
   ],
   "categorys": [

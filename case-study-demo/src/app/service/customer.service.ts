@@ -56,9 +56,8 @@ export class CustomerService {
   constructor(private httpClient: HttpClient) {
   }
 
-  findAll(name: string): Observable<Customer[]> {
-    name = name.toLowerCase();
-    return this.httpClient.get<Customer[]>('http://localhost:3000/customers?cusName_like=' + name);
+  findAll(): Observable<Customer[]> {
+    return this.httpClient.get<Customer[]>('http://localhost:3000/customers');
   }
 
   findById(id: string): Observable<Customer> {
@@ -75,5 +74,19 @@ export class CustomerService {
 
   deleteCus(id: string): Observable<Customer> {
     return this.httpClient.delete<Customer>('http://localhost:3000/customers/' + id);
+  }
+
+  search(name: string, idCusType: string, dayStar: string, dayEnd: string): Observable<Customer[]> {
+    let url = 'http://localhost:3000/customers?cusName_like=' + name;
+    if (idCusType) {
+      url += '&customerType.id=' + idCusType;
+    }
+    if (dayStar !== '') {
+      url += '&dateOfBirth_gte=' + dayStar;
+    }
+    if (dayEnd !== '') {
+      url += '&dateOfBirth_lte=' + dayEnd;
+    }
+    return this.httpClient.get<Customer[]>(url);
   }
 }

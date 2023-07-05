@@ -1,0 +1,82 @@
+<form novalidate [formGroup]="rfCreate">
+  <div class="form-group">
+    <label for="danhMuc">Danh Mục: </label>
+    <select id="danhMuc" formControlName = 'danhMuc'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let danhMuc of listDanhMuc" [ngValue]="danhMuc">{{danhMuc.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="vungMien">Vùng Miền: </label>
+    <select id="vungMien" formControlName = 'vungMien'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let vungMien of listVungMien" [ngValue]="vungMien">{{vungMien.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label >Bạn là: </label>
+    <input
+      type="radio" formControlName="name" value="Cá Nhân">Cá Nhân
+    <input
+      type="radio" formControlName="name" value="Công Ty">Công Ty
+  </div>
+  <div class="form-group">
+    <label >Bạn Đăng Tin: </label>
+    <input
+      type="radio" formControlName="dangTin" value="Cần Bán">Cần Bán
+    <input
+      type="radio" formControlName="dangTin" value="Cần Mua">Cần Mua
+    <input
+      type="radio" formControlName="dangTin" value="Cho Thuê">Cho Thuê
+    <input
+      type="radio" formControlName="dangTin" value="Cần Thuê">Cần Thuê
+  </div>
+  <div class="form-group">
+    <label >Tình Trạng: </label>
+    <input
+      type="radio" formControlName="tinhTrang" value="Mới">Mới
+    <input
+      type="radio" formControlName="tinhTrang" value="Đã Sử Dụng">Đã Sử Dụng
+  </div>
+  <div class="form-group">
+    <label for="diaChi">Địa Chỉ</label>
+    <input type="text" class="form-control" id="diaChi" formControlName="diaChi">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.diaChi.touched && rfCreate.controls.diaChi?.errors?.required">Không được
+    để trống</p>
+  <div class="form-group">
+  <label for="dienTich">Diện Tich</label>
+  <input type="number" class="form-control" id="dienTich" formControlName="dienTich">
+</div>
+  <p class="text-danger" *ngIf="rfCreate.controls.dienTich.touched && rfCreate.controls.dienTich?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.dienTich.touched && rfCreate.controls.dienTich?.errors?.min">Không được nhỏ hơn 20</p>
+  <div class="form-group">
+    <label for="huong">Hướng: </label>
+    <select id="huong" formControlName = 'huong'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let huong of listHuong" [ngValue]="huong">{{huong.name}}</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="tuaDe">Tựa Đề:</label>
+    <input type="text" class="form-control" id="tuaDe" formControlName="tuaDe">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.tuaDe.touched && rfCreate.controls.tuaDe?.errors?.required">Không được
+    để trống</p>
+  <div class="form-group">
+    <label for="noiDung">Nội Dung</label>
+    <input type="text" class="form-control" id="noiDung" formControlName="noiDung">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.noiDung.touched && rfCreate.controls.noiDung?.errors?.required">Không được
+    để trống</p>
+  <div class="form-group">
+    <label for="price">Giá </label>
+    <input type="number" class="form-control" id="price" formControlName="gia">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.gia.touched && rfCreate.controls.gia?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.gia.touched && rfCreate.controls.gia?.errors?.min">Không được nhỏ hơn 100.000.000</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid" (click)="save()">Submit</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/customer">Back</button>
+</form>

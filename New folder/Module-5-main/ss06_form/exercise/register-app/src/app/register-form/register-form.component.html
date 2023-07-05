@@ -1,0 +1,48 @@
+<h1>Register</h1>
+<form [formGroup]="userForm" (ngSubmit)="createUser()">
+  <label>Email: </label>
+  <input type="text" formControlName="email">
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('required') && userForm.controls.email.touched">Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('email')">phải theo định dạng ...@...</p>
+  <label>Password: </label>
+  <input type="password" formControlName="password">
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.password.touched">Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('minlength')">tối thiểu 6 kí tự</p>
+  <label>Confirm Password</label>
+  <input type="password" formControlName="confirmPassword">
+  <p style="color: red" *ngIf="userForm.controls.confirmPassword.hasError('required') && userForm.controls.confirmPassword.touched">Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.confirmPassword.hasError('minlength')">tối thiểu 6 kí tự</p>
+  <p style="color: red" *ngIf="userForm.hasError('passValid') && userForm.touched ">password phải đồng bộ với nhau</p>
+  <br>
+  <label>country: </label>
+  <select formControlName="country">
+    <option value="">---Choose---</option>
+    <option value="1">Đà Nẵng</option>
+    <option value="2">Quảng Nam</option>
+    <option value="3">Huế</option>
+  </select>
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.country.hasError('required') && userForm.controls.country.touched">Không được để trống !</p>
+  <br>
+  <label>Age: </label>
+  <input type="number" formControlName="age">
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('required') && userForm.controls.age.touched">Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.age.hasError('min')">phải trên 18 tủi</p>
+  <label>Gender: </label>
+  <label>Male</label>
+  <input type="radio" formControlName="gender" value="1">
+  <label>Female</label>
+  <input type="radio" formControlName="gender" value="0">
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.gender.hasError('required') && userForm.controls.gender.touched">Không được để trống !</p>
+
+  <label>Phone: </label>
+  <input type="text" formControlName="phone">
+  <br>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('required') && userForm.controls.phone.touched">Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.phone.hasError('pattern')">phải đủ 10 số, bắt đầu 09...</p>
+  <button type="submit">Create</button>
+</form>

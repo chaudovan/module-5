@@ -34,12 +34,12 @@ export class CustomerEditComponent implements OnInit {
           id: new FormControl(customer.id, [Validators.required, Validators.pattern(/^KH-\d{4}$/)]),
           cusName: new FormControl(customer.cusName, [Validators.required]),
           dateOfBirth: new FormControl(customer.dateOfBirth, [Validators.required, this.checkAge]),
-          gender: new FormControl(customer.gender, [Validators.required]),
+          gender: new FormControl(`${customer.gender}`, [Validators.required]),
           idCard: new FormControl(customer.idCard, [Validators.required, Validators.pattern(/^(\d{9}|\d{12})$/)]),
           phone: new FormControl(customer.phone, [Validators.required, Validators.pattern(/^(090|091|(\(84\)\+90|\(84\)\+91))\d{7}$/)]),
           email: new FormControl(customer.email, [Validators.required, Validators.email]),
           address: new FormControl(customer.address, [Validators.required]),
-          customerType: new FormControl(customer.customerType.id, [Validators.required])
+          customerType: new FormControl(this.cusTypeList.filter(item => item.id === customer.customerType.id)[0], [Validators.required])
         });
       });
     });
@@ -57,15 +57,9 @@ export class CustomerEditComponent implements OnInit {
 
   update() {
     const customer = this.rfEdit.value;
-    this.customerTypeService.findById(customer.customerType).subscribe(cusType => {
-      customer.customerType = {
-        id: cusType.id,
-        name: cusType.name
-      };
-      this.customerService.updateCus(this.id, customer).subscribe(next => {
-        this.router.navigateByUrl('/customer');
-        alert('sửa thành công');
-      });
+    this.customerService.updateCus(this.id, customer).subscribe(next => {
+      this.router.navigateByUrl('/customer');
+      alert('sửa thành công');
     });
   }
 }

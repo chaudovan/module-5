@@ -1,4 +1,4 @@
-<h2>List Cutomer</h2>
+<h2>List Employee</h2>
 <a name="" class="btn btn-primary" routerLink="/employee/create" role="button">Create New Enployee</a>
 <table class="table table-primary" style="text-align: center">
   <thead>
@@ -23,7 +23,7 @@
     <td scope="row">{{i+1}}</td>
     <td>{{employee.id}}</td>
     <td>{{employee.name}}</td>
-    <td>{{employee.dateOfBirth}}</td>
+    <td>{{employee.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
     <td>{{employee.idCard}}</td>
     <td>{{employee.salary}}</td>
     <td>{{employee.phone}}</td>

@@ -8,6 +8,7 @@ import { ProductCreateComponent } from './product/product-create/product-create.
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { EditComponent } from './product/edit/edit.component';
+import {ToastrModule} from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { EditComponent } from './product/edit/edit.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        ToastrModule.forRoot({
+          timeOut: 1000,
+          progressBar: true,
+          progressAnimation: 'increasing',
+          preventDuplicates: true
+        })
     ],
   providers: [],
   bootstrap: [AppComponent]

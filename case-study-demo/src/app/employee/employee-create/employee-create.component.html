@@ -16,7 +16,7 @@
       type="text"
       class="form-control" id="name" formControlName="name">
   </div>
-  <p class="text-danger" *ngIf="rfCreate.controls.cusName?.touched && rfCreate.controls.cusName?.errors?.required">
+  <p class="text-danger" *ngIf="rfCreate.controls.name?.touched && rfCreate.controls.name?.errors?.required">
     Không được để trống</p>
   <div class="form-group">
     <label for="date">Date Of Birth</label>
@@ -95,5 +95,5 @@
   <p class="text-danger" *ngIf="rfCreate.controls.division?.errors?.required && rfCreate.controls.division?.touched">không
     được để trống</p>
   <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid" (click)="save()">Submit</button>
-  <button type="submit" class="btn btn-primary"  routerLink="/employee">Back</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/facility">Back</button>
 </form>

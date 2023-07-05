@@ -12,8 +12,15 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { CustomerEditComponent } from './customer/customer-edit/customer-edit.component';
 import { EmployeeListComponent } from './employee/employee-list/employee-list.component';
 import { EmployeeCreateComponent } from './employee/employee-create/employee-create.component';
-import { EmployeeEditComponent } from './employee/employee-edit/employee-edit.component';
 import {HttpClientModule} from '@angular/common/http';
+import {EmployeeEditComponent} from './employee/employee-edit/employee-edit.component';
+import {EmployeeModule} from './employee/employee.module';
+import {CustomerModule} from './customer/customer.module';
+import {CommonModule} from '@angular/common';
+import { FacilityListComponent } from './facility/facility-list/facility-list.component';
+import { FacilityCreateComponent } from './facility/facility-create/facility-create.component';
+import { FacilityEditComponent } from './facility/facility-edit/facility-edit.component';
+import {FacilityModule} from './facility/facility.module';
 
 @NgModule({
   declarations: [
@@ -21,19 +28,17 @@ import {HttpClientModule} from '@angular/common/http';
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
-    CustomerListComponent,
-    CustomerCreateComponent,
-    CustomerEditComponent,
-    EmployeeListComponent,
-    EmployeeCreateComponent,
-    EmployeeEditComponent
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    EmployeeModule,
+    CustomerModule,
+    FacilityModule
   ],
   providers: [],
   bootstrap: [AppComponent]

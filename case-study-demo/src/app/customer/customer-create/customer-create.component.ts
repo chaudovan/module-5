@@ -50,6 +50,11 @@ export class CustomerCreateComponent implements OnInit {
 
 
   save() {
+    const customer = this.rfCreate.value;
+    this.customerService.findById(customer.id).subscribe(next => {
+      this.router.navigateByUrl('/customer/create');
+      alert('ID Đã Tồn tại');
+    });
     this.customerService.save(this.rfCreate.value).subscribe( next => {
       this.router.navigateByUrl('/customer');
       alert('Thêm thành công');

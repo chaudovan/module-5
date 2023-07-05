@@ -3,7 +3,7 @@
     <label for="id">ID</label>
     <input
       type="text"
-      class="form-control" id="id" formControlName="id">
+      class="form-control" id="id" formControlName="id" readonly>
   </div>
   <p class="text-danger" *ngIf="rfEdit.controls.id.touched && rfEdit.controls.id?.errors?.required">Không được
     để trống</p>
@@ -16,7 +16,7 @@
       type="text"
       class="form-control" id="name" formControlName="name">
   </div>
-  <p class="text-danger" *ngIf="rfEdit.controls.cusName?.touched && rfEdit.controls.cusName?.errors?.required">
+  <p class="text-danger" *ngIf="rfEdit.controls.name?.touched && rfEdit.controls.name?.errors?.required">
     Không được để trống</p>
   <div class="form-group">
     <label for="date">Date Of Birth</label>
@@ -71,7 +71,7 @@
     <label for="position">Position: </label>
     <select id="position" formControlName = 'position'>
       <option value="">---chọn---</option>
-      <option *ngFor="let position of listPositon" [ngValue]="position.id">{{position.name}}</option>
+      <option *ngFor="let position of listPositon" [ngValue]="position">{{position.name}}</option>
     </select>
   </div>
   <p class="text-danger" *ngIf="rfEdit.controls.position?.errors?.required && rfEdit.controls.position?.touched">không
@@ -80,7 +80,7 @@
     <label for="education">Education: </label>
     <select id="education" formControlName = 'education'>
       <option value="">---chọn---</option>
-      <option *ngFor="let education of listEducation" [ngValue]="education.id">{{education.name}}</option>
+      <option *ngFor="let education of listEducation" [ngValue]="education">{{education.name}}</option>
     </select>
   </div>
   <p class="text-danger" *ngIf="rfEdit.controls.education?.errors?.required && rfEdit.controls.education?.touched">không
@@ -89,7 +89,7 @@
     <label for="division">Division: </label>
     <select id="division" formControlName = 'division'>
       <option value="">---chọn---</option>
-      <option *ngFor="let division of listDivison" [ngValue]="division.id">{{division.name}}</option>
+      <option *ngFor="let division of listDivison" [ngValue]="division">{{division.name}}</option>
     </select>
   </div>
   <p class="text-danger" *ngIf="rfEdit.controls.division?.errors?.required && rfEdit.controls.division?.touched">không

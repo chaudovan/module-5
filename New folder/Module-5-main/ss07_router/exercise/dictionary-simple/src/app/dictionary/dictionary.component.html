@@ -1,0 +1,5 @@
+<h2 style="text-align: center">Dictionary Simple</h2>
+<h4>English :</h4>
+<div *ngFor="let value of wordList">
+  <a class="btn btn-outline-info" role="button" [routerLink]="['/dic-detail', value.word]">{{value.word}}</a>
+</div>

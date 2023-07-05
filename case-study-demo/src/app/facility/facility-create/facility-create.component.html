@@ -1,0 +1,74 @@
+<form novalidate [formGroup]="rfCreate">
+  <div class="form-group">
+    <label for="id">ID</label>
+    <input
+      type="text"
+      class="form-control" id="id" formControlName="id">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.id.touched && rfCreate.controls.id?.errors?.required">Không được
+    để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.id?.hasError('pattern') && rfCreate.controls.id?.touched">ID phải
+    có định dạng DV-xxxx với x là số</p>
+
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input
+      type="text"
+      class="form-control" id="name" formControlName="name">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.name?.touched && rfCreate.controls.name?.errors?.required">
+    Không được để trống</p>
+
+  <div class="form-group">
+    <label for="area">Area</label>
+    <input type="number" class="form-control" id="area" formControlName="area">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.area?.errors?.required && rfCreate.controls.area?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.area?.errors?.numberError && rfCreate.controls.area?.touched">Phải là số dương</p>
+  <div class="form-group">
+    <label for="floor">Floor</label>
+    <input type="number" class="form-control" id="floor" formControlName="floor">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.floor?.errors?.required && rfCreate.controls.floor?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.floor?.errors?.numberError && rfCreate.controls.floor?.touched">Phải là số dương</p>
+
+  <div class="form-group">
+    <label for="maxPeople">People Max</label>
+    <input type="number" class="form-control" id="maxPeople" formControlName="maxPeople">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.maxPeople?.errors?.required && rfCreate.controls.maxPeople?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.maxPeople?.errors?.numberError && rfCreate.controls.maxPeople?.touched">Phải là số dương</p>
+
+  <div class="form-group">
+    <label for="cost">Cost</label>
+    <input type="number" class="form-control" id="cost" formControlName="cost">
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.cost?.errors?.required && rfCreate.controls.cost?.touched">không
+    được để trống</p>
+  <p class="text-danger" *ngIf="rfCreate.controls.cost?.errors?.numberError && rfCreate.controls.cost?.touched">Phải là số dương</p>
+
+  <div class="form-group">
+    <label for="rentType">Rent Type: </label>
+    <select id="rentType" formControlName = 'rentType'>
+      <option value="">---chọn---</option>
+      <option *ngFor="let rentType of rentTyps" [ngValue]="rentType">{{rentType.name}}</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.rentType?.errors?.required && rfCreate.controls.rentType?.touched">không
+    được để trống</p>
+  <div class="form-group">
+    <label for="status">Status: </label>
+    <select id="status" formControlName = 'status'>
+      <option value="">---chọn---</option>
+      <option value="0">Rented</option>
+      <option value="1">Not rented yet</option>
+    </select>
+  </div>
+  <p class="text-danger" *ngIf="rfCreate.controls.rentType?.errors?.required && rfCreate.controls.rentType?.touched">không
+    được để trống</p>
+  <button type="submit" class="btn btn-primary" [disabled]="rfCreate.invalid" (click)="save()">Submit</button>
+  <button type="submit" class="btn btn-primary"  routerLink="/facility">Back</button>
+</form>

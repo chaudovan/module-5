@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {CategoryService} from '../../service/category.service';
 import {Category} from '../../model/category';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
   selector: 'app-product-create',
@@ -15,6 +16,7 @@ export class ProductCreateComponent implements OnInit {
   listCategory: Category[];
   constructor(private productService: ProductService,
               private categoryService: CategoryService,
+              private toastrService: ToastrService,
               private router: Router) {
   }
 
@@ -33,7 +35,7 @@ export class ProductCreateComponent implements OnInit {
   save() {
     const product = this.rfCreate.value;
     this.productService.save(product).subscribe(next => {
-      alert('Thêm mới thanh công');
+      this.toastrService.success('Create Done');
       this.router.navigateByUrl('/product');
     });
   }

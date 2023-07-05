@@ -1,0 +1,58 @@
+{
+  "student": [
+    {
+      "id": 4,
+      "name": "Đảm",
+      "dayOfBirth": "2002-03-23",
+      "address": "da nang",
+      "age": "20",
+      "classRoom": {
+        "id": 1,
+        "name": "C0222G2"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Phương",
+      "dayOfBirth": "2002-03-23",
+      "address": "da nang",
+      "age": "20",
+      "classRoom": {
+        "id": 1,
+        "name": "C0222G2"
+      }
+    },
+    {
+      "id": 6,
+      "name": "cccc",
+      "dayOfBirth": "2002-03-23",
+      "address": "quang ngai",
+      "age": "20",
+      "classRoom": {
+        "id": 1,
+        "name": "C0222G2"
+      }
+    }
+  ],
+  "classroom": [
+    {
+      "id": 1,
+      "name": "C0222G2"
+    },
+    {
+      "id": 2,
+      "name": "C0222G3"
+    },
+    {
+      "id": 3,
+      "name": "C0222G4"
+    },
+    {
+      "id": 4,
+      "name": "C0222G5"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

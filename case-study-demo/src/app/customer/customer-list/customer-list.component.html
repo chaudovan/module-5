@@ -1,8 +1,25 @@
 <h2>List Cutomer</h2>
 <a name="" class="btn btn-primary" routerLink="/customer/create" role="button">Create New Customer</a>
 <div>
-<input name="searchName" placeholder="nhập tên" [(ngModel)]="searchName">
-<a name="" class="btn btn-primary" role="button" (click)="search()">Search</a>
+  <input #name placeholder="nhập tên" [(ngModel)]="searchName">
+  <div class="input-group">
+    <label for="cusType"></label>
+    <select #cusType class="form-select" name="" id="cusType">
+      <option value="">---chọn---</option>
+      <option *ngFor="let customerType of cusTypeList" value="{{customerType.id}}">{{customerType.name}}</option>
+    </select>
+  </div>
+  <div class="input-group">
+    <label for=""></label>
+    <input
+      type="date" #dayStar
+      class="form-control" name="" aria-describedby="helpId" placeholder="">
+    <input
+      type="date" #dayEnd
+      class="form-control" name="" aria-describedby="helpId" placeholder="">
+  </div>
+  <a name="" class="btn btn-primary" role="button"
+     (click)="search(name.value,cusType.value,dayStar.value,dayEnd.value)">Search</a>
 </div>
 <table class="table table-primary" style="text-align: center">
   <thead>
@@ -22,10 +39,10 @@
   </thead>
   <tbody>
   <tr *ngFor="let customer of customerList,index as i">
-    <td scope="row">{{i+1}}</td>
+    <td scope="row">{{i + 1}}</td>
     <td>{{customer.id}}</td>
     <td>{{customer.cusName}}</td>
-    <td>{{customer.dateOfBirth}}</td>
+    <td>{{customer.dateOfBirth | date: 'dd/MM/yyyy'}}</td>
     <td *ngIf="customer.gender==1">Nam</td>
     <td *ngIf="customer.gender==0">Nữ</td>
     <td>{{customer.idCard}}</td>
@@ -34,9 +51,10 @@
     <td>{{customer.address}}</td>
     <td>{{customer.customerType.name}}</td>
     <td>
-      <a  class="btn btn-primary" routerLink="/customer/edit/{{customer.id}}"
-          role="button">Edit</a>|
-      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="showDelete(customer)" >
+      <a class="btn btn-primary" routerLink="/customer/edit/{{customer.id}}"
+         role="button">Edit</a>|
+      <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="showDelete(customer)">
         Delete
       </button>
 

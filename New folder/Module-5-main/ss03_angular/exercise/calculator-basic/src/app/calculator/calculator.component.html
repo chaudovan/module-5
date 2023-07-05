@@ -1,0 +1,12 @@
+<div style="text-align: center">
+  <h1>Calculator Basic</h1>
+  <input type="number" [(ngModel)]="num1">
+  <input type="number" [(ngModel)]="num2">
+  <br>
+  <input type="button" value="Addition(+)" (click)="change('+')">
+  <input type="button" value="Subtraction(-)" (click)="change('-')">
+  <input type="button" value="Multiplication(X)" (click)="change('*')">
+  <input type="button" value="Division(/)" (click)="change('/')">
+  <h3>Result: {{num3}}</h3>
+  <h3 style="color: red">{{error}}</h3>
+</div>

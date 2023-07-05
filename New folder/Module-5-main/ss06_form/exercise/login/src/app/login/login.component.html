@@ -1,0 +1,12 @@
+<form [formGroup]="userForm">
+  <h1>Login</h1>
+  <input formControlName="email" placeholder="Username" type="text" required="">
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('required') && userForm.controls.email.touched">Không
+    được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.email.hasError('email')">phải theo định dạng ...@...</p>
+  <input formControlName="password" placeholder="Password" type="password" required="">
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('required') && userForm.controls.password.touched">
+    Không được để trống !</p>
+  <p style="color: red" *ngIf="userForm.controls.password.hasError('minlength')">tối thiểu 6 kí tự</p>
+  <button>Submit</button>
+</form>
